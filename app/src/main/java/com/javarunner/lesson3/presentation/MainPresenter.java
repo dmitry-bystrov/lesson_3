@@ -34,24 +34,36 @@ public class MainPresenter extends MvpPresenter<MainView> {
                     @Override
                     public void onSubscribe(Disposable d) {
                         conversion = d;
+                        getViewState().showAbortDialog();
                     }
 
                     @Override
                     public void onComplete() {
+                        getViewState().closeAbortDialog();
                         getViewState().showConvertingSuccessfulMessage();
                         getViewState().showConvertedImage(image.getFile());
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        getViewState().closeAbortDialog();
                         getViewState().showConvertingUnsuccessfulMessage();
                     }
                 });
     }
 
+    public void onAbortConversion() {
+        disposeConversion();
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
+        disposeConversion();
+    }
+
+    private void disposeConversion() {
+        if (conversion == null) return;
         conversion.dispose();
     }
 }

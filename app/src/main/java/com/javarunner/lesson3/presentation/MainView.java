@@ -7,14 +7,17 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 import java.io.File;
 
-@StateStrategyType(SkipStrategy.class)
+
+@StateStrategyType(AddToEndSingleStrategy.class)
 public interface MainView extends MvpView {
+    @StateStrategyType(SkipStrategy.class)
     void openFileChooser();
-
+    @StateStrategyType(SkipStrategy.class)
     void showConvertingSuccessfulMessage();
-
+    @StateStrategyType(SkipStrategy.class)
     void showConvertingUnsuccessfulMessage();
 
-    @StateStrategyType(AddToEndSingleStrategy.class)
+    void showAbortDialog();
+    void closeAbortDialog();
     void showConvertedImage(File imageFile);
 }

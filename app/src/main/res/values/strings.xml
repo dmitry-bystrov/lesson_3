@@ -2,4 +2,9 @@
     <string name="app_name">lesson3</string>
     <string name="convert_image">Convert image</string>
     <string name="file_chooser_title">Select picture to convert</string>
+    <string name="abort_button">Abort</string>
+    <string name="abort_message">Do you want to abort operation?</string>
+    <string name="abort_title">Image conversion</string>
+    <string name="successful">Converting is successful</string>
+    <string name="unsuccessful">Converting is unsuccessful</string>
 </resources>

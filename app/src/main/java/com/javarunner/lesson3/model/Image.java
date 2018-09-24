@@ -20,6 +20,7 @@ public class Image {
         return Completable.create(emitter -> {
             try {
                 imageConverter.convertImage(fileUri, file);
+                Thread.sleep(5000);
                 emitter.onComplete();
             } catch (Exception e) {
                 emitter.onComplete();
